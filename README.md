@@ -193,3 +193,11 @@ httpsとSSHとあるけど、httpsのみ。
   baseとcompareの差分が表示されるので、意図した変更差分のみな事を確認して
   Create pull request
 7. プルリクエストをマージする
+  [Github](https://github.com/ykishi0531/sandbox)
+  Pull requestタブ内に、作成したプルリクエストがあるので、
+  自分以外のレビュアーにレビューしてもらい、OKが出たら
+  Merge pull request
+
+  レビューにて指摘があり、変更を適用したい場合は
+  プルリクエストはそのまま、ローカルのトピックブランチにて修正＆コミット＆プッシュすると
+  プルリクエストに、プッシュした内容が反映される
