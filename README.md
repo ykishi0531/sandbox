@@ -164,7 +164,7 @@ httpsとSSHとあるけど、httpsのみ。
 2. developを最新化する  
   `git checkout develop` - developブランチに切り替える  
   `git fetch origin develop` - リモートリポジトリの内容をローカルリポジトリに取り込む  
-  `git merge develop` - ローカルリポジトリの内容をローカルプロジェクトに取り込む  
+  `git merge origin/develop` - ローカルリポジトリの内容をローカルプロジェクトに取り込む  
 3. developからトピックブランチを作成する  
   `git branch feature/（機能名)` - ローカルリポジトリにブランチを作成する  
   `git checkout feature/（機能名)` - 作成したブランチに切り替える
