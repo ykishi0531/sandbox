@@ -168,7 +168,7 @@ httpsとSSHとあるけど、httpsのみ。
 2. developを最新化する  
   `git checkout develop` - developブランチに切り替える  
   `git fetch origin develop` - リモートリポジトリの内容をローカルリポジトリに取り込む  
-  `git merge origin/develop` - ローカルリポジトリの内容をローカルプロジェクトに取り込む  
+  `git merge origin/develop` - ローカルリポジトリの内容をローカルリポジトリに取り込む  
 3. developからトピックブランチを作成する  
   `git branch feature/（機能名)` - ローカルリポジトリにブランチを作成する  
   `git checkout feature/（機能名)` - 作成したブランチに切り替える
@@ -178,6 +178,8 @@ httpsとSSHとあるけど、httpsのみ。
   * トピックブランチへの変更をコミットする  
     * `git status`  
       ブランチの状態と、ファイルの変更状態を確認する。  
+    * `git diff (ファイルパス)`  
+      ローカルリポジトリとローカルファイルの変更差分を確認する
     * `git add （ファイルパス）`  
       変更を加えたファイルから、コミットしたいものをコミット対象にする（ステージングエリアへ追加する）  
     * `git commit`  
