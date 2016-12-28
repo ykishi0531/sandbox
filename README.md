@@ -1,4 +1,4 @@
-# <a name="sction0">Githubやってみよう
+# Githubやってみよう
 ソースコードのバージョン管理を行うにあたって、Git（Github）を使用しようと思います。  
 このテキストは、Android勉強会の一環として使用する目的が云々・・・
 
@@ -85,9 +85,6 @@ Gitのシステムを使用できるサービスとかは、Github以外にも�
 * Bitbacket
 * etc...
 
-
-[TOP](#section0)
-
 ***
 
 ## <a name="section2">導入
@@ -98,9 +95,7 @@ Gitのシステムを使用できるサービスとかは、Github以外にも�
 [実験用リポジトリ](https://github.com/ykishi0531/sandbox)  
 作成したGithubアカウントのユーザー名を教えてください。  
 リポジトリの作成者、もしくはリポジトリへ開発者として招待されたユーザーのみが  
-リポジトリに対して変更を送信することが出来ます。
-
-[TOP](#section0)
+リポジトリに対して変更を送信することが
 
 ***
 
@@ -122,8 +117,6 @@ viとかtailとかwindowsでできるよ！
 [Atlassian SoueceTree](https://ja.atlassian.com/software/sourcetree)  
 GUIだから使いやすい？  
 Atlassianのアカウントが必要。
-
-[TOP](#section0)
 
 ***
 
@@ -223,12 +216,8 @@ httpsとSSHとあるけど、httpsのみ。
   プルリクエストはそのまま、ローカルのトピックブランチにて修正＆コミット＆プッシュすると  
   プルリクエストに、プッシュした内容が反映される  
 
-[TOP](#section0)
-
 ***
 
 ## <a name="section5">参考になりそうなサイト
 * [Git 再入門 リモートリポジトリを使った作業](http://www.yunabe.jp/docs/relearning_git_remote.html)  
 * [基本的なGitコマンドまとめ](http://qiita.com/2m1tsu3/items/6d49374230afab251337)
-
-[TOP](#section0)
