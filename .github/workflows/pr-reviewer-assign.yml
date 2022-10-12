@@ -1,0 +1,43 @@
+name: PR Reviewer Auto Assignment
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    branches:
+      - develop
+
+jobs:
+  reviewer-assign:
+    runs-on: ubuntu-latest
+    env:
+      API_BASE_URL: "https://api.github.com"
+      COMMON_HEADER: "Accept: application/vnd.github.v3+json"
+      ORG: "testyk0531"
+      TEAM_SLUG: "exampleA"
+
+    if: github.event.pull_request.base.ref == 'develop' && github.event.pull_request.draft == false
+    steps:
+      - name: Get Members List
+        id: get-members-list
+        run: |
+          response=$(curl -X GET \
+               -H "$COMMON_HEADER" \
+               -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+               $API_BASE_URL/orgs/$ORG/teams/$TEAM_SLUG/members)
+          members=$(echo $response | jq '[.[].login | select(. != "${{ github.actor }}")]')
+          echo ::set-output name=members::$members
+      # - name: Set Reviewers
+      #   id: set-reviewers
+      #   run: |
+      #     curl -X POST \
+      #          -H "$COMMON_HEADER" \
+      #          -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+      #          $API_BASE_URL/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/requested_reviewers \
+      #          -d '{ "reviewers": ${{ steps.get-members-list.outputs.members }} }'
+  # 上記処理が失敗した場合、slack通知
+  # error-notifications:
+  #   if: failure()
+  #   needs: reviewer-assign
+  #   uses: REPO/.github/workflows/error-notifications.yml@master
+  #   with:
+  #     detail: "レビュアーのアサインに失敗しました。"
