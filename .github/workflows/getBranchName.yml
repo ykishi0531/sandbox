@@ -6,15 +6,16 @@ on:
 
 jobs:
   get_branch_names:
-  steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-    - name Get Branch Names
-      run: |
-        branch_names=$(
-          git branch -a | grep remotes/origin/features
-        )
-        echo "BRANCH_NAMES=${branch_names//remotes¥/origin¥/}" >> $GITHUB_ENV
-    - name Echo
-      run: echo $env.BRANCH_NAMES
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Get Branch Names
+        run: |
+          branch_names=$(
+            git branch -a | grep remotes/origin/features
+          )
+          echo "BRANCH_NAMES=${branch_names//remotes¥/origin¥/}" >> $GITHUB_ENV
+      - name: Echo
+        run: echo $env.BRANCH_NAMES
     
