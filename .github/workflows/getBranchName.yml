@@ -11,6 +11,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Get Branch Names
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           branch_names=$(
             git branch -a | grep remotes/origin/features
