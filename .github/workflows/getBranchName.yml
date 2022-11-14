@@ -19,7 +19,7 @@ jobs:
           branch_names=$(
             git branch -r
           )
-          echo "::set-output name=branch_names::${branch_names}"
+          echo "branch_names=${branch_names}" >> $GITHUB_OUTPUT
       - name: Echo
-        run: echo $steps.get_branch_names.outputs.branch_names
+        run: echo ${{ steps.get_branch_names.outputs.branch_names }}
     
