@@ -15,9 +15,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           branch_names=$(
-            git branch -a | grep remotes/origin/features
+            git branch -a
           )
-          echo "BRANCH_NAMES=${branch_names//remotes¥/origin¥/}" >> $GITHUB_ENV
+          echo "BRANCH_NAMES=${branch_names}" >> $GITHUB_ENV
       - name: Echo
         run: echo $env.BRANCH_NAMES
     
