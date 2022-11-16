@@ -21,5 +21,7 @@ jobs:
           )
           echo "branch_names=${branch_names}" >> $GITHUB_OUTPUT
       - name: Echo
-        run: echo ${{ steps.get_branch_names.outputs.branch_names }}
+        run: |
+          branchNames=${{ steps.get_branch_names.outputs.branch_names// / }}
+          for branchName in "${branchNames[@]}"; do echo "$branchName"; done
     
