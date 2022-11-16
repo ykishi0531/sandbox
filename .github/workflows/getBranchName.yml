@@ -17,7 +17,7 @@ jobs:
         run: |
           git fetch -p
           branch_names=$(
-            git branch -r | grep test | tr -d ' ' | sed -e s/origin\\///g | tr '\n' ','
+            git branch -r | grep feature | tr -d ' ' | sed -e s/origin\\///g | tr '\n' ','
           )
           echo "branch_names=${branch_names}" >> $GITHUB_OUTPUT
       - name: Echo
@@ -25,7 +25,7 @@ jobs:
           branchNames=${{ steps.get_branch_names.outputs.branch_names }}
           branchNameArr=(${branchNames//,/ })
           for branchName in "${branchNameArr[@]}"; do
-            echo "test"
             echo $branchName
           done
+          gh pr create -B ${branchNameArr[0]} -t 'test' -b ''
     
