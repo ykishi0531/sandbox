@@ -29,5 +29,5 @@ jobs:
           for branchName in "${branchNameArr[@]}"; do
             echo $branchName
           done
-          gh pr create -B ${branchNameArr[0]} -H master -t 'test' -b ''
+          gh pr create -B ${branchNameArr[0]} -H test/api -t 'test' -b ''
     
