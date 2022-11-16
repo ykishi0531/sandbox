@@ -21,6 +21,8 @@ jobs:
           )
           echo "branch_names=${branch_names}" >> $GITHUB_OUTPUT
       - name: Echo
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           branchNames=${{ steps.get_branch_names.outputs.branch_names }}
           branchNameArr=(${branchNames//,/ })
