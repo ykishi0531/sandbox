@@ -17,7 +17,7 @@ jobs:
         run: |
           git fetch -p
           branch_names=$(
-            git branch -r | grep test | tr -d ' ' | tr -d 'origin/' | tr '\n' ','
+            git branch -r | grep test | tr -d ' ' | sed -e s/origin\\///g | tr '\n' ','
           )
           echo "branch_names=${branch_names}" >> $GITHUB_OUTPUT
       - name: Echo
