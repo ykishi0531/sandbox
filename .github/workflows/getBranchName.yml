@@ -17,12 +17,12 @@ jobs:
         run: |
           git fetch -p
           branch_names=$(
-            git branch -r | grep test | tr -d ' ' | tr '\n' ' '
+            git branch -r | grep test | tr -d ' ' | tr '\n' ','
           )
           echo "branch_names=${branch_names}" >> $GITHUB_OUTPUT
       - name: Echo
         run: |
-          branchNames=${steps.get_branch_names.outputs.branch_names}
-          branchNameArr=${branchNames// /}
+          branchNames=${{ steps.get_branch_names.outputs.branch_names }}
+          branchNameArr=${branchNames//,/ }
           for branchName in "${branchNameArr[@]}"; do echo $branchName; done
     
