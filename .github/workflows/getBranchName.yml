@@ -23,7 +23,7 @@ jobs:
       - name: Echo
         run: |
           branchNames=${{ steps.get_branch_names.outputs.branch_names }}
-          branchNameArr=${branchNames//,/ }
+          branchNameArr=(${branchNames//,/ })
           for branchName in "${branchNameArr[@]}"; do
             echo "test"
             echo $branchName
