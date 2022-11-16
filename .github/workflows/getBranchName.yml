@@ -24,5 +24,8 @@ jobs:
         run: |
           branchNames=${{ steps.get_branch_names.outputs.branch_names }}
           branchNameArr=${branchNames//,/ }
-          for branchName in "${branchNameArr[@]}"; do echo $branchName; done
+          for branchName in "${branchNameArr[@]}"; do
+            echo "test"
+            echo $branchName
+          done
     
