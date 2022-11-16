@@ -24,10 +24,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          today=$(date '+%Y/%m/%d')
+          title="${today}リリース内容取り込み"
           branchNames=${{ steps.get_branch_names.outputs.branch_names }}
           branchNameArr=(${branchNames//,/ })
           for branchName in "${branchNameArr[@]}"; do
             echo $branchName
           done
-          gh pr create -B ${branchNameArr[0]} -H test/api -t 'test' -b ''
+          gh pr create -B ${branchNameArr[0]} -H test/api -t ${title} -b ${title}
     
