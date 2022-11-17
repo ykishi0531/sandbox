@@ -1,0 +1,18 @@
+name: Closed Pull Request
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  get_pull_request_body:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == false
+    steps:
+      - uses: actions/checkout@v3
+      - name: Get pull request body
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          body="${{ github.event.pull_request.body }}"
+          echo ${body//¥n/ }

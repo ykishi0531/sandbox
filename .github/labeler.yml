@@ -1,0 +1,6 @@
+test/api:
+- api/**/*
+test/client:
+- client/**/*
+test/database:
+- database/**/*
