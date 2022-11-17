@@ -14,5 +14,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          body=（${{ github.event.pull_request.body }}）
-          echo ${body[//¥¥n/ }
+          body=${{ github.event.pull_request.body }}
+          echo ${body//¥n/ }
